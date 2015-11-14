@@ -1,3 +1,4 @@
+
 emptyHanger ="""
          _____________             
         |             |           
@@ -106,20 +107,18 @@ rightLegHanger ="""
         o             |
        o o            |
         o             |
-       /|\\            |
-      / | \\           |
+       /|\            |
+      / | \           |
         |             |
-       / \\            |
-      /   \\           |
+       / \            |
+      /   \           |
 ______________________|__________________"""
 
 hangers = [emptyHanger, headHanger, bodyHanger,\
            leftArmHanger, rightArmHanger, leftLegHanger, rightLegHanger]
-#what to add:
-#spaces within words
-#better hanging men
 
-wordList = ["Cheese", "Jazz", "Zoo", "Truck", "Fireplace", "Alcohol",\
+
+wordList = ["Cheese", "Jazz", "Zoo", "Truck", "Fireplace", "Android",\
             "Trial", "Refund", "Hangman", "Train"]
 
 from random import randrange
@@ -144,6 +143,7 @@ def guessCorrect():
     return guessWord
 '''
 '''def guessWrong():
+    a = 0
     a += 1
     print("Sorry that isn't in the word")
     wrongGuesses.append(guessLetter)
@@ -162,11 +162,11 @@ while (guessWord != word):
         guessWord = "".join(guessWord)
         guessWord = word
         break
-    elif guessLetter.isalpha() !=  True:
+    elif not guessLetter.isalpha():
         print("Please guess a letter")
     elif len(guessLetter) > 1:
         print("Please only guess one letter")
-    
+        
     elif guessLetter in correctGuesses:
         wasGuessed()
     elif guessLetter in wrongGuesses:
@@ -190,4 +190,3 @@ if guessWord.upper() == word.upper():
 else:
     print("sorry, you lose, the word was {}".format(word))         
 print(hangers[a])
-
